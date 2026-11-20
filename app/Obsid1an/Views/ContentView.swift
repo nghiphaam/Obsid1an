@@ -91,9 +91,11 @@ struct ContentView: View {
                         Button {
                             showRustResearch = true
                         } label: {
-                            Image(systemName: "doc.text.magnifyingglass")
+                            Label("RUST", systemImage: "doc.text.magnifyingglass")
+                                .labelStyle(.titleAndIcon)
+                                .font(.caption.weight(.semibold))
                         }
-                        .accessibilityLabel("RUST Research catalogue")
+                        .accessibilityLabel("Open RUST Research catalogue")
                     }
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {

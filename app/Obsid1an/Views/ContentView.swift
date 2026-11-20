@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showSettings = false
+    @State private var showRustResearch = false
     @State private var exploitManager = ExploitManager()
     @State private var logExpanded = false
 
@@ -88,6 +89,14 @@ struct ContentView: View {
                     }
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
+                            showRustResearch = true
+                        } label: {
+                            Image(systemName: "doc.text.magnifyingglass")
+                        }
+                        .accessibilityLabel("RUST Research catalogue")
+                    }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
                             withAnimation(.spring(duration: 0.4)) {
                                 showSettings = true
                             }
@@ -96,6 +105,9 @@ struct ContentView: View {
                         }
                     }
                 }
+            }
+            .sheet(isPresented: $showRustResearch) {
+                RustResearchView()
             }
 
             if showSettings {

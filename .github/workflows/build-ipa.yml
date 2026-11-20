@@ -1,0 +1,54 @@
+name: Build Obsid1an IPA (unsigned)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - ci/rust-research-ipa
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: |
+          xcode-select -p
+          xcodebuild -version
+          xcodebuild -list -project app/Obsid1an.xcodeproj
+
+      - name: Archive for generic iOS device
+        run: |
+          set -o pipefail
+          xcodebuild archive \
+            -project app/Obsid1an.xcodeproj \
+            -scheme Obsid1an \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/Obsid1an.xcarchive" \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Package unsigned IPA
+        run: |
+          set -euo pipefail
+          APP="$RUNNER_TEMP/Obsid1an.xcarchive/Products/Applications/Obsid1an.app"
+          test -d "$APP"
+          mkdir -p "$RUNNER_TEMP/ipa/Payload"
+          ditto "$APP" "$RUNNER_TEMP/ipa/Payload/Obsid1an.app"
+          (cd "$RUNNER_TEMP/ipa" && ditto -c -k --sequesterRsrc --keepParent Payload "$GITHUB_WORKSPACE/Obsid1an-unsigned.ipa")
+          file Obsid1an-unsigned.ipa
+          ls -lh Obsid1an-unsigned.ipa
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Obsid1an-unsigned-IPA
+          path: Obsid1an-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 7

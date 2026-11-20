@@ -17,6 +17,9 @@
 		BB0000020000000000000004 /* RespringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000010000000000000004 /* RespringManager.swift */; };
 		BB0000020000000000000005 /* JailbreakSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000010000000000000005 /* JailbreakSettings.swift */; };
 		DD0000020000000000000001 /* BootstrapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0000010000000000000001 /* BootstrapManager.swift */; };
+		EE0000020000000000000001 /* RustMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0000010000000000000001 /* RustMode.swift */; };
+		EE0000020000000000000002 /* RustCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0000010000000000000002 /* RustCatalog.swift */; };
+		EE0000020000000000000003 /* RustResearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0000010000000000000003 /* RustResearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		BB0000010000000000000004 /* RespringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespringManager.swift; sourceTree = "<group>"; };
 		BB0000010000000000000005 /* JailbreakSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JailbreakSettings.swift; sourceTree = "<group>"; };
 		DD0000010000000000000001 /* BootstrapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootstrapManager.swift; sourceTree = "<group>"; };
+		EE0000010000000000000001 /* RustMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustMode.swift; sourceTree = "<group>"; };
+		EE0000010000000000000002 /* RustCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustCatalog.swift; sourceTree = "<group>"; };
+		EE0000010000000000000003 /* RustResearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustResearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,7 @@
 				CC0000010000000000000004 /* System */,
 				CC0000010000000000000005 /* Resources */,
 			CC0000010000000000000006 /* Bootstrap */,
+			EE0000030000000000000001 /* RustResearch */,
 			);
 			path = Obsid1an;
 			sourceTree = "<group>";
@@ -72,6 +79,16 @@
 				DD0000010000000000000001 /* BootstrapManager.swift */,
 			);
 			path = Bootstrap;
+			sourceTree = "<group>";
+		};
+		EE0000030000000000000001 /* RustResearch */ = {
+			isa = PBXGroup;
+			children = (
+				EE0000010000000000000001 /* RustMode.swift */,
+				EE0000010000000000000002 /* RustCatalog.swift */,
+				EE0000010000000000000003 /* RustResearchView.swift */,
+			);
+			path = RustResearch;
 			sourceTree = "<group>";
 		};
 		CC0000010000000000000001 /* App */ = {
@@ -205,6 +222,9 @@
 				BB0000020000000000000004 /* RespringManager.swift in Sources */,
 				BB0000020000000000000005 /* JailbreakSettings.swift in Sources */,
 				DD0000020000000000000001 /* BootstrapManager.swift in Sources */,
+				EE0000020000000000000001 /* RustMode.swift in Sources */,
+				EE0000020000000000000002 /* RustCatalog.swift in Sources */,
+				EE0000020000000000000003 /* RustResearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
